@@ -1,0 +1,5 @@
+Hola: 
+
+El nombre de usuario o el correo electrónico son incorrectos. Compruébelo y reinicie. 
+
+Muchas gracias.
