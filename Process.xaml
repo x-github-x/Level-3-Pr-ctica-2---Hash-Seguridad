@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>376,980</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>441,913</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -56,9 +56,10 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. &#xA;&#xA;System1_10:   Navega hasta la página detalle Cliente.&#xA;System1_20:   Extrae datos Cliente (Id, Nombre, Pais)&#xA;SHA1_10:  Generar Hash&#xA;System1_30:   Cumplimenta Hash en Work Item." DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="336,900" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. &#xA;&#xA;System1_10:   Navega hasta la página detalle Cliente.&#xA;System1_20:   Extrae datos Cliente (Id, Nombre, Pais)&#xA;SHA1_10:  Generar Hash&#xA;System1_30:   Cumplimenta Hash en Work Item." DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="421,853" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="var_IdCliente" />
       <Variable x:TypeArguments="x:String" Name="var_NombreCliente" />
@@ -71,32 +72,32 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_10.NavegateTo_WIDetails workflow" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\System1\System1_10.NavegateTo_WIDetails.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_10.NavegateTo_WIDetails workflow" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\System1\System1_10.NavegateTo_WIDetails.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_WIId">[in_TransactionItem("WIID").ToString]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_System1_URL">[in_Config("URL_System1").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_20.ExtractClientInformation workflow" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Framework/System1/System1_20.ExtractClientInformation.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_20.ExtractClientInformation workflow" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Framework/System1/System1_20.ExtractClientInformation.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="x:String" x:Key="out_IdCliente">[var_IdCliente]</OutArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_NombreCliente">[var_NombreCliente]</OutArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_PaisCliente">[var_PaisCliente]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SHA1_10.GetHashCode workflow" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Framework\SHA1Online\SHA1_10.GetHashCode.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SHA1_10.GetHashCode workflow" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Framework\SHA1Online\SHA1_10.GetHashCode.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="SHA1_10_in_DatosCliente">[var_IdCliente + "-" + var_NombreCliente + "-" + var_PaisCliente]</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="SHA1_10_out_HashCliente">[var_HashCliente]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_30.GrabarHash workflow" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Framework\System1\System1_30.GrabarHash.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_30.GrabarHash workflow" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Framework\System1\System1_30.GrabarHash.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="System1_30_in_Estado">Completed</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="System1_30_in_Comentario">[var_HashCliente]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  https://acme-test.ui...'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  https://acme-test.ui...'" sap:VirtualizedContainerService.HintSize="379,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -108,7 +109,11 @@
         </ui:CursorPosition>
       </ui:Click.CursorPosition>
       <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="192bc6ceebb04cc1debd9def64ca6991" Selector="&lt;html title='ACME System 1 - Work Items' /&gt;&lt;webctrl aaname='Home' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ol&amp;gt;li&amp;gt;a' tag='A' /&gt;" WaitForReady="INTERACTIVE" />
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="192bc6ceebb04cc1debd9def64ca6991" Selector="&lt;html title='ACME System 1 - Work Items' /&gt;&lt;webctrl aaname='Home' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ol&amp;gt;li&amp;gt;a' tag='A' /&gt;" WaitForReady="INTERACTIVE">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+        </ui:Target>
       </ui:Click.Target>
     </ui:Click>
   </Sequence>
